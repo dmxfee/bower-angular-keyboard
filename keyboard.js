@@ -482,7 +482,9 @@ angular.module('keyboard').directive('kbItem', ["KbItemController", "$animate", 
                 $scope.$apply();
             });
             $scope.$on('$destroy', function () {
-                kbContainer.active = kbContainer._first();
+                if (kbContainer.active === kbItem) {
+                    kbContainer.active = kbContainer._first();
+                }
             });
         }
     };
